@@ -6,7 +6,7 @@
     <img src="{{ "images/avatar.png" | relURL }}" alt="avatar" style="width:120px;height:120px;border-radius:50%;margin-right:16px;">
     <div>
       <div class="header-title">
-        <a href="{{ .Site.LanguagePrefix }}/"
+        <a href="{{ .Site.LanguagePrefix | relURL}}/"
           >{{ or .Site.Params.headTitle .Site.Author.name }}</a
         >
       </div>
@@ -18,7 +18,7 @@
 </header>
 <div class="row end-md header-items">
   <div class="header-item">
-    <a href="/categories/"><strong>分类</strong></a>
+    <a href="{{ "categories/" | relURL }}"><strong>分类</strong></a>
   </div>
   {{ range .Site.Params.socials }}
   <div class="header-item">
@@ -29,7 +29,7 @@
 <div class="row">
   {{ range .Site.Languages -}} {{ if ne .LanguageName $curLanguageName }}
   <div class="lang-switch col-xs-3 col-xs-offset-9">
-    <a href="/{{ .Lang }}/">{{ .LanguageName }}</a>
+    <a href="{{ .Site.LanguagePrefix | relURL }}">{{ .LanguageName }}</a>
   </div>
   {{ end }} {{ end }}
 </div>
